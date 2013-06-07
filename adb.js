@@ -54,7 +54,7 @@ DebugBridge.log = function (level, msg) {
 };
 
 DebugBridge.start_server = function (callback /* (code: number) */) {
-    var binary = './binaries/' + process.platform + '/adb';
+    var binary = __dirname + '/binaries/' + process.platform + '/adb';
     if (!fs.existsSync(binary)) {
         throw('Could not find binary ' + binary);
     }
