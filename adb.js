@@ -54,9 +54,14 @@ DebugBridge.log = function (level, msg) {
 };
 
 DebugBridge.start_server = function (callback /* (code: number) */) {
+    var binary = './binaries/' + process.platform + '/adb';
+    if (!fs.existsSync(binary)) {
+        throw('Could not find binary ' + binary);
+    }
+
     var spawn = require('child_process').spawn;
 
-    var adb = spawn('./' + require('os').platform() + '/adb', ['start-server']);
+    var adb = spawn(binary, ['start-server']);
 
     adb.stdout.on('data', function (data) {
         DebugBridge.log('log','stdout: ' + data);
