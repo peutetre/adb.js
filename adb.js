@@ -55,6 +55,7 @@ DebugBridge.log = function (level, msg) {
 
 DebugBridge.start_server = function (callback /* (code: number) */) {
     var binary = __dirname + '/binaries/' + process.platform + '/adb';
+    var binary = 'adb';
     if (!fs.existsSync(binary)) {
         throw('Could not find binary ' + binary);
     }
@@ -736,4 +737,3 @@ StreamPusher.prototype._startPush = function startPush() {
     buf.write(data, 8, data.length, 'binary');
     this.session.sock.write(buf);
 };
-
