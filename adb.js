@@ -283,13 +283,14 @@ DebugBridge.prototype.traceDevice = function (callback /* (devices: AndroidDevic
     }, true);
 };
 
-DebugBridge.prototype.forward = function forward(local, remote, callback) {
+DebugBridge.prototype.forward = function forward(local, remote, sn, callback) {
     var adb = this;
+    var prefix = sn ? 'host-serial:' + sn : 'host';
 
     this.connect(function onConnect(session) {
-        session.sendData('host:forward:' + local + ';' + remote);
+        session.sendData(prefix + ':forward:' + local + ';' + remote);
         callback();
-    })
+    });
 }
 
 var AndroidDevice = function (adb, id, type) {
