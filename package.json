@@ -1,5 +1,5 @@
 {
-    "name": "adb",
+    "name": "adb-fork",
     "version": "0.4.1",
     "main": "./adb.js",
     "description": "A node.js module which implement pure javascript adb protocol to control Android device",
@@ -21,7 +21,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "http://github.com/flier/adb.js.git"
+        "url": "http://github.com/peutetre/adb.js.git"
     },
     "engines": {
         "node": ">=0.10.10"
